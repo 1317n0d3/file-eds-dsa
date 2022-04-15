@@ -1,8 +1,6 @@
-const fs = require("fs"),
-  crypto = require("crypto"),
-  CryptoJS = require("crypto-js"),
-  prompt = require("prompt"),
-  keysGenerator = require("./keysGenerator");
+const prompt = require("prompt"),
+  keysGenerator = require("./keysGenerator"),
+  signature = require("./signature");
 
 console.log(`
     1.Generate key pair in "./keys/"
@@ -16,6 +14,9 @@ prompt.get(["mode"], function (err, result) {
   switch (+result.mode) {
     case 1:
       keysGenerator.generateKeys();
+      break;
+    case 2:
+      signature.createSign();
       break;
     default:
       return;
