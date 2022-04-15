@@ -1,9 +1,7 @@
-const NodeRSA = require("node-rsa"),
-  fs = require("fs"),
+const fs = require("fs"),
   crypto = require("crypto");
 
 const PRIVATE_KEY_PATH = "./keys/private.pem",
-  PUBLIC_KEY_PATH = "./keys/public.pem",
   FILE_PATH = "./data.txt";
 
 function createSign() {
@@ -21,7 +19,7 @@ function createSign() {
 
   const signature = sign.sign(privateKey).toString("base64");
 
-  console.log(signature);
+  console.log(`EDS: ${signature}`);
 
   fs.writeFile(`./signature.txt`, signature, (err) => {
     if (err) throw err;

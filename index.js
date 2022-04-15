@@ -1,6 +1,7 @@
 const prompt = require("prompt"),
   keysGenerator = require("./keysGenerator"),
-  signature = require("./signature");
+  signature = require("./signature"),
+  verify = require("./verify");
 
 console.log(`
     1.Generate key pair in "./keys/"
@@ -17,6 +18,9 @@ prompt.get(["mode"], function (err, result) {
       break;
     case 2:
       signature.createSign();
+      break;
+    case 3:
+      verify.checkVerify();
       break;
     default:
       return;
